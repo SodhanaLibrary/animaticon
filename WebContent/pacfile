@@ -1,0 +1,12 @@
+var hosts = [
+  'www.doodlemars.com'
+];
+
+function FindProxyForURL(url, host) {
+  for (var idx = 0; idx < hosts.length; ++idx) {
+    if (host.indexOf(hosts[idx]) !== -1) {
+      return 'PROXY localhost:3443';
+    }
+  }
+  return 'DIRECT';
+}
